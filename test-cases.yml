@@ -1,0 +1,81 @@
+---
+- summary: |
+    Проверка успешной регистрации пользователя путем заполнения формы валидными данными
+  requirement: |
+    При вводе валидных данный пользователь должен успешно зарегистрироваться и автоматически попасть в программу
+  prerequisites:
+     На главной странице открыта форма Sign up
+  test-data: |
+    Nickname = Olga1 Email = olgasusorova271@gmail.com Password = 111111 Password confirmation = 111111
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Password
+    - Password confirmation
+    - Нажимаем кнопку Submit или выбираем альтернативный вариант регистрации (Sign in with Githab or Sign in with Discort)
+  expected-result: |
+    Пользователь попадает на страницу Codebattle: https://codebattle.hexlet.io/#lobby
+    
+- summary: |
+    Проверка не успешной регистрации пользователя путем заполнения формы невалидными данными
+  requirement: |
+    При вводе невалидных данный пользователь не может зарегистрироваться и попасть в программу
+  prerequisites:
+    На главной странице открыта форма Sign up
+  test-data: |
+    Nickname = 1qq1qqqqq1 Email = 11111@mail.ru Password = qqqqq Password confirmation = qqqqq
+  steps:
+    - Вводим Nickname
+    - Вводим Email
+    - Password
+    - Password confirmation
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Система выделяет красным формы с ошибками и дает подсказку, какими должны быть данные в данном поле для исправления
+
+- summary: |
+    Проверка входа пользователя с существующими логином и паролем
+  requirement: |
+    При вводе в полях формы данных существующего пользователя, пользователь успешно попадает на страницу Codebattle: https://codebattle.hexlet.io/#lobby
+  prerequisites:
+    На главной странице открыта форма Sign in
+  test-data: |
+    Email = olgasusorova271@gmail.com Password = 111111
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Пользователь попадает на страницу Codebattle: https://codebattle.hexlet.io/#lobby
+
+- summary: |
+    Проверка входа пользователя с несуществующими логином и паролем
+  requirement: |
+    При неправильном логине или пароле у пользователя появляется красным сообщение об ошибке "EMAIL_NOT_FOUND"
+  prerequisites:
+    На главной странице открыта форма Sign in
+  test-data: |
+    Email = tqdfbf@mail.ru Password = 111111
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Под названием формы появляется красным сообщение об ошибке "EMAIL_NOT_FOUND"
+
+- summary: |
+    Проверка входа пользователя с несуществующими логином и паролем
+  requirement: |
+    При неправильном логине или пароле у пользователя появляется красным сообщение об ошибке "EMAIL_NOT_FOUND"
+  prerequisites:
+    На главной странице открыта форма Sign in
+  test-data: |
+    Email = tqdfbf@mail.ru Password = 111111
+  steps:
+    - Вводим Email
+    - Вводим Password
+    - Нажимаем кнопку Submit
+  expected-result: |
+    Под названием формы появляется красным сообщение об ошибке "EMAIL_NOT_FOUND"
+
+    
